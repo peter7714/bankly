@@ -10,7 +10,7 @@ const BCRYPT_WORK_FACTOR = 10;
 
 const fs = require('fs');
 
-const db_password = fs.readFileSync("full_path_to/your/password/file/db_password.txt", "utf8").trim();
+const db_password = fs.readFileSync("db_password.txt", "utf8").trim();
 
 function getDatabaseUri() {
   return (process.env.NODE_ENV === "test")

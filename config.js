@@ -8,19 +8,32 @@ const PORT = +process.env.PORT || 3000;
 
 const BCRYPT_WORK_FACTOR = 10;
 
-const fs = require('fs');
+const { db_password } = require('./db_password.js');
 
-const db_password = fs.readFileSync("db_password.txt", "utf8").trim();
+const credentials = {
+  user: "postgres",
+  host: "peter",
+  database: "bankly",
+  password: `${db_password}`,
+  port: 5432,
+};
 
-function getDatabaseUri() {
-  return (process.env.NODE_ENV === "test")
-        ? `postgresql://username:${db_password}@localhost:5432/jobly_test` 
-        : `postgresql://username:${db_password}@localhost:5432/jobly`;
-}
+const test_credentials = {
+  user: "postgres",
+  host: "peter",
+  database: "bankly_test",
+  password: `${db_password}`,
+  port: 5432,
+};
+
+const DB_URI =
+  process.env.NODE_ENV === 'test'
+    ? test_credentials
+    : credentials
 
 module.exports = {
   BCRYPT_WORK_FACTOR,
   SECRET_KEY,
   PORT,
-  getDatabaseUri
+  DB_URI
 };

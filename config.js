@@ -12,7 +12,7 @@ const { db_password } = require('./db_password.js');
 
 const credentials = {
   user: "postgres",
-  host: "peter",
+  host: "localhost",
   database: "bankly",
   password: `${db_password}`,
   port: 5432,
@@ -20,7 +20,7 @@ const credentials = {
 
 const test_credentials = {
   user: "postgres",
-  host: "peter",
+  host: "localhost",
   database: "bankly_test",
   password: `${db_password}`,
   port: 5432,

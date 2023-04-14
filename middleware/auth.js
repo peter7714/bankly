@@ -16,7 +16,6 @@ function requireLogin(req, res, next) {
     return next(err);
   }
 }
-
 /** Authorization Middleware: Requires user is logged in and is staff. */
 
 function requireAdmin(req, res, next) {

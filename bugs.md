@@ -1,0 +1,1 @@
+in /middleware/auth.js the function 
